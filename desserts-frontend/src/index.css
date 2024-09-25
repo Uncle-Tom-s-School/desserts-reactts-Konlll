@@ -9,8 +9,81 @@
   --Rose500: hsl(12, 20%, 44%);
   --Rose900: hsl(14, 65%, 9%);
   color: var(-Rose900);
+  font-family: Arial, Helvetica, sans-serif;
 }
 * {
   box-sizing: border-box;
   margin: 0;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 95%;
+  max-width: 800px;
+  margin: auto;
+  gap: 20px;
+}
+
+.dessert-card {
+  h2 {
+    color: var(--Rose900);
+    font-size: 1.2rem;
+  }
+
+  h4 {
+    color: var(--Rose400);
+    font-weight: 400;
+  }
+}
+
+.dessert-card > h3 {
+  color: var(--Red);
+}
+.dessert-card > img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.dessert-card > .add-btn {
+  position: relative;
+  top: calc(var(--height) / 2 * -1);
+  left: 50%;
+  transform: translate(-50%);
+}
+.dessert-card:has(.used) > img {
+  border: 2px solid var(--Red);
+}
+
+.add-btn {
+  --height: 50px;
+  background: #fff;
+  height: var(--height);
+  aspect-ratio: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid var(--Red);
+  border-radius: calc(var(--height) / 2);
+  font-weight: bold;
+  transition: background 0.5s;
+
+  &.used {
+    padding: 0 10px;
+    background-color: var(--Red);
+    justify-content: space-between;
+    color: #fff;
+
+    & > button {
+      height: calc(var(--height) - 20px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
 }

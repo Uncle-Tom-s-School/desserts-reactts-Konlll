@@ -1,18 +1,23 @@
+import { useEffect, useState } from "react";
 import DessertCard from "../components/DessertCard";
 import { DessertCardProp } from "../components/DessertCard";
 
 const Home = () => {
-  let lista: DessertCardProp[] = [
-    { name: "Almáspite", category: "Pie", price: 6.5 },
-  ];
+  const [desserts, setDesserts] = useState<DessertCardProp[]>([]);
+
+  useEffect(() => {
+    fetch("/data.json")
+      .then((res) => res.json())
+      .then((data) => setDesserts(data));
+  }, []);
 
   return (
     <div>
       <section>
         <h1>Desserts</h1>
         <div className="cards-grid">
-          {lista.map((suti) => (
-            <DessertCard {...suti} />
+          {desserts.map((dessert) => (
+            <DessertCard {...dessert} />
           ))}
         </div>
       </section>
