@@ -16,11 +16,22 @@
   margin: 0;
 }
 
+.dessert-panel {
+  width: 95%;
+  max-width: 800px;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  max-width: 90%;
+  margin: auto;
+  margin-top: 50px;
+}
+
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 95%;
-  max-width: 800px;
   margin: auto;
   gap: 20px;
 }
@@ -57,7 +68,7 @@
 }
 
 .add-btn {
-  --height: 50px;
+  --height: 45px;
   background: #fff;
   height: var(--height);
   aspect-ratio: 3;
